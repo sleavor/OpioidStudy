@@ -1,0 +1,42 @@
+df = read.delim('Data/Opioid Related Death Summary, 1999-2020.txt')
+
+df = df %>% mutate(death_per_100k = Deaths/Population*100000) %>% 
+  subset(Notes!="Total") %>% select(State, State.Code, Year, Deaths, Population,
+                                    death_per_100k)
+
+#Treatment Year is if they added one-day reporting
+df = df %>% mutate(treatment_year = ifelse(State=="West Virginia", 2012,
+                                           ifelse(State=="Michigan" | State =="Tennessee" | State=="Washington", 2016,
+                                                  ifelse(State=="Kentucky", 2013, 0))))
+
+atts <- att_gt(yname = "death_per_100k", # LHS variable
+               tname = "Year", # time variable
+               idname = "State.Code", # id variable
+               gname = "treatment_year", # first treatment period variable
+               data = df, # data
+               #xformla = NULL, # no covariates
+               xformla = ~ Population, # with covariates
+               est_method = "dr", # "dr" is doubly robust. "ipw" is inverse probability weighting. "reg" is regression
+               control_group = "nevertreated", # set the comparison group which is either "nevertreated" or "notyettreated" 
+               bstrap = TRUE, # if TRUE compute bootstrapped SE
+               biters = 1000, # number of bootstrap iterations
+               print_details = FALSE, # if TRUE, print detailed results
+               clustervars = "State.Code", # cluster level
+               panel = TRUE) # whether the data is panel or repeated cross-sectional
+
+# Aggregate ATT
+agg_effects <- aggte(atts, type = "group")
+summary(agg_effects)
+
+# Group-time ATTs
+summary(atts)
+
+# Plot group-time ATTs
+ggdid(atts)
+
+# Event-study
+agg_effects_es <- aggte(atts, type = "dynamic")
+summary(agg_effects_es)
+
+# Plot event-study coefficients
+ggdid(agg_effects_es)
