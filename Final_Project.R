@@ -9,6 +9,24 @@ df = df %>% mutate(treatment_year = ifelse(State=="West Virginia", 2012,
                                            ifelse(State=="Michigan" | State =="Tennessee" | State=="Washington", 2016,
                                                   ifelse(State=="Kentucky", 2013, 0))))
 
+#Treatment Year for online provider access
+df = df %>% mutate(treatment_year = ifelse(State=="Kentucky", 2005,
+                                           ifelse(State=="Massachusetts", 2011,
+                                                  ifelse(State=="Michigan", 2003,
+                                                         ifelse(State=="New York", 2010, 
+                                                                ifelse(State=="North Carolina" | State=="Tennessee", 2007,
+                                                                       ifelse(State=="Washington", 2012, 
+                                                                              ifelse(State=="West Virginia", 2004, 0))))))))
+
+
+#Treatment Year is if they legalize weed.
+df = df %>% mutate(treatment_year = ifelse(State=="Alaska" | State=="Oregon", 2014,
+                                           ifelse(State=="Arizona" | State=="Montana" | State=="New Jersey", 2020,
+                                                  ifelse(State=="California" | State=="Maine" | State=="Massachusetts" | State=="Nevada", 2016,
+                                                         ifelse(State=="Colorado" | State=="Washington", 2012, 
+                                                                ifelse(State=="Illinois", 2019,
+                                                                       ifelse(State=="Michigan" | State=="Vermont", 2018, 0)))))))
+
 atts <- att_gt(yname = "death_per_100k", # LHS variable
                tname = "Year", # time variable
                idname = "State.Code", # id variable
