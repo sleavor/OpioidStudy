@@ -1,7 +1,8 @@
 df = read.delim('Data/Opioid Related Death Summary, 1999-2020.txt')
 
 df = df %>% mutate(death_per_100k = Deaths/Population*100000) %>% 
-  subset(Notes!="Total") %>% select(State, State.Code, Year, Deaths, Population,
+  subset(Notes!="Total") %>% subset(State!="District of Columbia") %>% 
+  select(State, State.Code, Year, Deaths, Population,
                                     death_per_100k)
 
 #Treatment Year is if they added one-day reporting
@@ -19,13 +20,21 @@ df = df %>% mutate(treatment_year = ifelse(State=="Kentucky", 2005,
                                                                               ifelse(State=="West Virginia", 2004, 0))))))))
 
 
-#Treatment Year is if they legalize weed.
+#Treatment Year is if they legalize marijuana recreationally
 df = df %>% mutate(treatment_year = ifelse(State=="Alaska" | State=="Oregon", 2014,
                                            ifelse(State=="Arizona" | State=="Montana" | State=="New Jersey", 2020,
                                                   ifelse(State=="California" | State=="Maine" | State=="Massachusetts" | State=="Nevada", 2016,
                                                          ifelse(State=="Colorado" | State=="Washington", 2012, 
                                                                 ifelse(State=="Illinois", 2019,
                                                                        ifelse(State=="Michigan" | State=="Vermont", 2018, 0)))))))
+
+
+#Table of Treatment Years
+df %>% group_by(State) %>% summarize(Treatment_Year = mean(treatment_year)) %>% 
+  subset(Treatment_Year != 0) %>% kbl(format="latex")
+
+#Summarizing Data
+df %>% group_by(State) %>% summarize(Mean_Death_Rate = mean(death_per_100k)) %>% kbl(format="latex")
 
 atts <- att_gt(yname = "death_per_100k", # LHS variable
                tname = "Year", # time variable

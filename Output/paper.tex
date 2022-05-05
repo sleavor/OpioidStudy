@@ -1,0 +1,97 @@
+
+\documentclass{article}
+
+\input{structure.tex} % Include the file specifying the document structure and custom commands
+\usepackage{longtable}
+
+%----------------------------------------------------------------------------------------
+%	ASSIGNMENT INFORMATION
+%----------------------------------------------------------------------------------------
+
+\title{The Link Between Marijuana Legalization and Opioid Overdoses} % Title of the assignment
+
+\author{Shawn Leavor, Colin McNally, Jacob Bulzak} % Author name and email address
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle % Print the title
+
+
+%----------------------------------------------------------------------------------------
+%	Introduction
+%----------------------------------------------------------------------------------------
+
+\section*{Abstract} % Unnumbered section
+
+We found that only just 5-years after legalizing marijuana, states with legal marijuana see a decrease in opioid deaths relative to those where it is still illegal. 
+
+\section*{Introduction} % Unnumbered section
+
+The purpose is to replicate the famous paper by Lott and Mustard and determine if there is a significant causal relationship between the passing of gun laws and crime in the United States.
+
+We attempt to replicate their findings using various methods of causal inference separate from the original panel data method.
+
+%----------------------------------------------------------------------------------------
+%	Background and Economic Theory
+%----------------------------------------------------------------------------------------
+
+\section*{Background} % Numbered section
+
+Since 2012, 14 states have made recreational use of marijuana legal. 
+
+We use legalization of marijuana as a random assignment of ability to use marijuana over opiates. There's no difference between states, except that more liberal states may be more likely to legalize marijuana. 
+
+We assume that treatment is a random assignment of freedom to use marijuana for opioid users. 
+
+\input{table1.tex}
+
+
+%----------------------------------------------------------------------------------------
+%	Data
+%----------------------------------------------------------------------------------------
+
+\section*{Data} % Numbered section
+
+We ignore the District of Columbia
+
+\input{table2.tex}
+
+\input{table3.tex}
+
+%----------------------------------------------------------------------------------------
+%	Empirical Models
+%----------------------------------------------------------------------------------------
+
+\section*{Methodology} % Numbered section
+
+
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=.85\textwidth]{sc_graph.png}
+    \end{center}
+    \caption{ATT of treatment year on opioid death rate per 100k}
+    \label{fig:graph}
+\end{figure}
+
+
+%------------------------------------------------------------------------------------------------
+
+\section*{Discussion}
+
+As expected, opioid deaths goes down. Marijuana becomes a substitute for opioids. 
+
+More liberal states may be more likely to legalize Marijuana.
+
+%------------------------------------------------------------------------------------------------
+
+\section*{Conclusion}
+
+Marijuana legalization leads to less opioid deaths. Legalizing marijuana can save lives. 
+
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
