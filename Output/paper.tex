@@ -25,13 +25,11 @@
 
 \section*{Abstract} % Unnumbered section
 
-We found that only just 5-years after legalizing marijuana, states with legal marijuana see a decrease in opioid deaths relative to those where it is still illegal. 
+Our goal was to determine if there was a link between opioid deaths and availability of marijuana. To do this, we studied opioid deaths by state from 1999-2020 and did a difference-in-differenes study where the treatment was legalization of marijuana. From 2012 to 2020, 14 states legalized marijuana for recreational use, so we used these states to determine how deaths from opioids changes when a state legalizes marijuana. We find that 5-years after legalizing marijuana, states with legal marijuana see a decrease in opioid deaths relative to those where it is still illegal. 
 
 \section*{Introduction} % Unnumbered section
 
-The purpose is to replicate the famous paper by Lott and Mustard and determine if there is a significant causal relationship between the passing of gun laws and crime in the United States.
-
-We attempt to replicate their findings using various methods of causal inference separate from the original panel data method.
+We believe that marijuana could be a substitute for opioids in use for pain addiction. And also as medicine for dealing with opioid withdrawals. 
 
 %----------------------------------------------------------------------------------------
 %	Background and Economic Theory
@@ -39,7 +37,7 @@ We attempt to replicate their findings using various methods of causal inference
 
 \section*{Background} % Numbered section
 
-Since 2012, 14 states have made recreational use of marijuana legal. 
+Since 2012, 14 states have made recreational use of marijuana legal. Over that same time period, we've seen the death rate of opioids explode, as shown in table 3. 
 
 We use legalization of marijuana as a random assignment of ability to use marijuana over opiates. There's no difference between states, except that more liberal states may be more likely to legalize marijuana. 
 
@@ -54,7 +52,9 @@ We assume that treatment is a random assignment of freedom to use marijuana for 
 
 \section*{Data} % Numbered section
 
-We ignore the District of Columbia
+Data comes from the CDC WONDER system which has data for underlying death cause from 1999 until 2020. Because of this data limitation, we ignore states that legalized marijuana after 2020 and the District of Columbia. Opioid overdose deaths are identified using underlying cause-of-death codes X40–X44, X60–X64, X85, and Y10–Y14. All data comes from the CDC and provides the death rate per 100,000 citizens from opioids for each year for each state. The data also includes the population of each state and total deaths from opioids. 
+
+The below tables show which states have the highest average rate of opioid deaths over the data period and also how the average death rate from opioids changes from year to year. We see that states like West Virginia and New Mexico have a high rate of opioid death, while the less densely populated states of North Dakokta and South Dakota have less. We can also see that the average death rate each year steadily rises and quintupled over the study period. 
 
 \input{table2.tex}
 
@@ -66,7 +66,17 @@ We ignore the District of Columbia
 
 \section*{Methodology} % Numbered section
 
+We use our state and year-level data to perform a difference in difference study and examine a causal effect between legalizing marijuana and opioid death rate. The only control we add in this study is for state population each year. 
 
+Our Paper uses the Callaway and Sant'anna Difference in Differences Estimator which uses the following formula to estimate average treatment of the treated:
+
+$$ATT(g,t)=E[(  \frac{G_g}{ E[G_g]} - \frac{ \frac{ \hat{p} (X)C}{1- \hat{p} (X)}}{E [\frac{\hat{p} (X) C } {1 - \hat{p} (X)}]}) (Y_t - Y_{g-1})]$$
+
+\section*{Results}
+
+We find a significant effect after 5 years of legalizing the recreational use of marijuana. The figure below shows our findings. Most states seem to have a comparable difference in opioid deaths leading up to treatment and even for 3 to 4 years afterwards. However, after the 5th year, we see a significant decrease in opioid deaths for our treated states compared to our untreated states and this holds for the rest of the treatment period. 
+
+\input{table4.tex}
 
 \begin{figure}
     \begin{center}
@@ -84,6 +94,10 @@ We ignore the District of Columbia
 As expected, opioid deaths goes down. Marijuana becomes a substitute for opioids. 
 
 More liberal states may be more likely to legalize Marijuana.
+
+We see that less densely populated states have less opioid deaths, so we could add a control for population density or region. 
+
+We also don't check to see if the loss in opioid deaths leads to higher deaths in other areas. 
 
 %------------------------------------------------------------------------------------------------
 

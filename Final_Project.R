@@ -31,10 +31,12 @@ df = df %>% mutate(treatment_year = ifelse(State=="Alaska" | State=="Oregon", 20
 
 #Table of Treatment Years
 df %>% group_by(State) %>% summarize(Treatment_Year = mean(treatment_year)) %>% 
-  subset(Treatment_Year != 0) %>% kbl(format="latex")
+  subset(Treatment_Year != 0) %>% round(2) %>%  kbl(format="latex")
 
-#Summarizing Data
-df %>% group_by(State) %>% summarize(Mean_Death_Rate = mean(death_per_100k)) %>% kbl(format="latex")
+#Summarizing Deaths Per State
+df %>% group_by(State) %>% summarize(Mean_Death_Rate = round(mean(death_per_100k),2)) %>% kbl(format="latex")
+#Summarizing Deaths Per Year
+df %>% group_by(Year) %>% summarize(Mean_Death_Rate = round(mean(death_per_100k),2)) %>% kbl(format="latex")
 
 atts <- att_gt(yname = "death_per_100k", # LHS variable
                tname = "Year", # time variable
@@ -64,6 +66,12 @@ ggdid(atts)
 # Event-study
 agg_effects_es <- aggte(atts, type = "dynamic")
 summary(agg_effects_es)
+new_df = data.frame(agg_effects_es$egt, 
+                    agg_effects_es$att.egt, 
+                    agg_effects_es$se.egt) %>% 
+  mutate(lower_int = agg_effects_es.att.egt-1.98*agg_effects_es.se.egt,
+         upper_int = agg_effects_es.att.egt+1.98*agg_effects_es.se.egt)
+kbl(agg_effects_es$egt)
 
 # Plot event-study coefficients
 ggdid(agg_effects_es)
