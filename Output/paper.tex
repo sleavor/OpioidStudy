@@ -29,7 +29,9 @@ Our goal was to determine if there was a link between opioid deaths and availabi
 
 \section*{Introduction} % Unnumbered section
 
-We believe that marijuana could be a substitute for opioids in use for pain addiction. And also as medicine for dealing with opioid withdrawals. 
+We are interested in estimating the causal effect of access to marijuana on opioid deaths. The parameter we care about is the average treated on the treated of marijuana legalization on opioid deaths. We believe that marijuana could be a substitute for opioids in use for pain addiction, so we expect that the legalization of marijuana recreationally and easier access to this alternative will cause a reduction in opioid deaths.
+
+The results of this study can enable policy changes that can help lower opioid deaths across the United States, one of the biggest problems that the country is tackling. Other laws, such as limiting prescriptions of opioids can lead to people seeking illegal substitutes, such as heroin. Legalizing marijuana could be an effective policy to combat the growing opioid epidemic. 
 
 %----------------------------------------------------------------------------------------
 %	Background and Economic Theory
@@ -37,11 +39,9 @@ We believe that marijuana could be a substitute for opioids in use for pain addi
 
 \section*{Background} % Numbered section
 
-Since 2012, 14 states have made recreational use of marijuana legal. Over that same time period, we've seen the death rate of opioids explode, as shown in table 3. 
+Since 2012, 14 states have made recreational use of marijuana legal. Over that same time period, we've seen the death rate of opioids explode, as shown in table 3. With the rise of the opioid crisis, due to many reasons, including prescription of opioids for pain management, people want to find an alternative for opioids. There is some literature that shows that marijuana can be a substitute for pain management, so we examine if there is a linkk between the two and if marijuana is used as a substitute. 
 
-We use legalization of marijuana as a random assignment of ability to use marijuana over opiates. There's no difference between states, except that more liberal states may be more likely to legalize marijuana. 
-
-We assume that treatment is a random assignment of freedom to use marijuana for opioid users. 
+We use legalization of marijuana as a random assignment of ability to use marijuana over opiates. There's no difference between states, except that more liberal states may be more likely to legalize marijuana. We assume that treatment is a random assignment of freedom to use marijuana for opioid users. 
 
 \input{table1.tex}
 
@@ -76,7 +76,6 @@ $$ATT(g,t)=E[(  \frac{G_g}{ E[G_g]} - \frac{ \frac{ \hat{p} (X)C}{1- \hat{p} (X)
 
 We find a significant effect after 5 years of legalizing the recreational use of marijuana. The figure below shows our findings. Most states seem to have a comparable difference in opioid deaths leading up to treatment and even for 3 to 4 years afterwards. However, after the 5th year, we see a significant decrease in opioid deaths for our treated states compared to our untreated states and this holds for the rest of the treatment period. 
 
-\input{table4.tex}
 
 \begin{figure}
     \begin{center}
@@ -86,24 +85,24 @@ We find a significant effect after 5 years of legalizing the recreational use of
     \label{fig:graph}
 \end{figure}
 
+\input{table4.tex}
+
 
 %------------------------------------------------------------------------------------------------
 
 \section*{Discussion}
 
-As expected, opioid deaths goes down. Marijuana becomes a substitute for opioids. 
+As we expected, opioid deaths goes down after a state legalizes marijuana. However, this does not happen immediately, but takes 5 years for opioids deaths to have a significant decrease. We believe that this is because marijuana becomes a substitute for opioids. 
 
-More liberal states may be more likely to legalize Marijuana.
+Even though we find a causal link between opioid deaths and marijuana legalization, we believe that there are ways we could improve this study and some things to consider further. First, there could be selection bias in the states that legalize marijuana. Some of the first adopters of legalized marijuana policies are more liberal and could have other factors that allow them to have less opioid deaths outside of legalizing marijuana. We also notice that less densely populated states have a lower opioid death rate, so it may be worth adding a control for population density or the region of the country.
 
-We see that less densely populated states have less opioid deaths, so we could add a control for population density or region. 
-
-We also don't check to see if the loss in opioid deaths leads to higher deaths in other areas. 
+Also, it is outside the scope of this study to determine if the fall in opioid deaths in state that legalized marijuana led to a higher death rate in another area. It could be possible that the death rate in something such as motor accidents rose while opioid deaths fell.
 
 %------------------------------------------------------------------------------------------------
 
 \section*{Conclusion}
 
-Marijuana legalization leads to less opioid deaths. Legalizing marijuana can save lives. 
+Marijuana legalization leads to less opioid deaths in states that legalize marijuana. This could have a profound effect on policy, as it can become one way to combat the ongoing opioid epidemic. If more states were to adopt marijuana legalization, we may see the opioid crisis begin to slow or even decline. 
 
 
 %----------------------------------------------------------------------------------------

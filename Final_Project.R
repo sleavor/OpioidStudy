@@ -70,8 +70,8 @@ new_df = data.frame(agg_effects_es$egt,
                     agg_effects_es$att.egt, 
                     agg_effects_es$se.egt) %>% 
   mutate(lower_int = agg_effects_es.att.egt-1.98*agg_effects_es.se.egt,
-         upper_int = agg_effects_es.att.egt+1.98*agg_effects_es.se.egt)
-kbl(agg_effects_es$egt)
+         upper_int = agg_effects_es.att.egt+1.98*agg_effects_es.se.egt) %>% round(2)
+kbl(new_df, format="latex")
 
 # Plot event-study coefficients
 ggdid(agg_effects_es)
