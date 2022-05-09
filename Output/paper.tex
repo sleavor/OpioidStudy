@@ -72,7 +72,15 @@ Our Paper uses the Callaway and Sant'anna Difference in Differences Estimator wh
 
 $$ATT(g,t)=E[(  \frac{G_g}{ E[G_g]} - \frac{ \frac{ \hat{p} (X)C}{1- \hat{p} (X)}}{E [\frac{\hat{p} (X) C } {1 - \hat{p} (X)}]}) (Y_t - Y_{g-1})]$$
 
+This estimator was chosen because it can handle treatment that happens in multiple periods. States rolled out recreational marijuana policies in different periods and this estimator allows us to account for these different periods. 
+
+- We did an event study aggregate effects. I wonder how that changes things. 
+
 \section*{Results}
+
+First we find the results of our overall ATT, which shows a significant decrease in opioid deaths with the legalization of marijuana. We also see significant effects for 2012 and 2014. However, these seem to fall over time.
+
+\input{table5.tex}
 
 We find a significant effect after 5 years of legalizing the recreational use of marijuana. The figure below shows our findings. Most states seem to have a comparable difference in opioid deaths leading up to treatment and even for 3 to 4 years afterwards. However, after the 5th year, we see a significant decrease in opioid deaths for our treated states compared to our untreated states and this holds for the rest of the treatment period. 
 
@@ -93,6 +101,8 @@ We find a significant effect after 5 years of legalizing the recreational use of
 \section*{Discussion}
 
 As we expected, opioid deaths goes down after a state legalizes marijuana. However, this does not happen immediately, but takes 5 years for opioids deaths to have a significant decrease. We believe that this is because marijuana becomes a substitute for opioids. 
+
+We see that the effect is significant overall and in 2012 and 2014, but not after that. This could be due to the fact that there are not enough years to see the significant reduction, since data in 2016 will only last through 2020. 
 
 Even though we find a causal link between opioid deaths and marijuana legalization, we believe that there are ways we could improve this study and some things to consider further. First, there could be selection bias in the states that legalize marijuana. Some of the first adopters of legalized marijuana policies are more liberal and could have other factors that allow them to have less opioid deaths outside of legalizing marijuana. We also notice that less densely populated states have a lower opioid death rate, so it may be worth adding a control for population density or the region of the country.
 

@@ -75,3 +75,14 @@ kbl(new_df, format="latex")
 
 # Plot event-study coefficients
 ggdid(agg_effects_es)
+
+# OLS Regression for Robustness
+#Dummy for treated or not
+df = df %>% mutate(treated = ifelse(treatment_year == 0, 0, ifelse(Year >= treatment_year, 1, 0)))
+reg = lm(death_per_100k ~ treated + Year + Population, data=df)
+summary(reg)   
+
+#Using years from treatment instead of treated dummy
+df = df %>% mutate(years_from_treat = ifelse(treatment_year == 0, 0, ifelse(Year >= treatment_year, Year-treatment_year +1, 0)))
+reg = lm(death_per_100k ~ years_from_treat + Year + Population, data=df)
+summary(reg)   
