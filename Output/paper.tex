@@ -39,7 +39,7 @@ The results of this study can enable policy changes that can help lower opioid d
 
 \section*{Background} % Numbered section
 
-Since 2012, 14 states have made recreational use of marijuana legal. Over that same time period, we've seen the death rate of opioids explode, as shown in table 3. With the rise of the opioid crisis, due to many reasons, including prescription of opioids for pain management, people want to find an alternative for opioids. There is some literature that shows that marijuana can be a substitute for pain management, so we examine if there is a linkk between the two and if marijuana is used as a substitute. 
+Since 2012, 14 states have made recreational use of marijuana legal. Over that same time period, we've seen the death rate of opioids explode, as shown in table 3. With the rise of the opioid crisis, due to many reasons, including prescription of opioids for pain management, people want to find an alternative for opioids. There is some literature that shows that marijuana can be a substitute for pain management, so we examine if there is a link between the two and if marijuana is used as a substitute. 
 
 We use legalization of marijuana as a random assignment of ability to use marijuana over opiates. There's no difference between states, except that more liberal states may be more likely to legalize marijuana. We assume that treatment is a random assignment of freedom to use marijuana for opioid users. 
 
@@ -54,7 +54,7 @@ We use legalization of marijuana as a random assignment of ability to use mariju
 
 Data comes from the CDC WONDER system which has data for underlying death cause from 1999 until 2020. Because of this data limitation, we ignore states that legalized marijuana after 2020 and the District of Columbia. Opioid overdose deaths are identified using underlying cause-of-death codes X40–X44, X60–X64, X85, and Y10–Y14. All data comes from the CDC and provides the death rate per 100,000 citizens from opioids for each year for each state. The data also includes the population of each state and total deaths from opioids. 
 
-The below tables show which states have the highest average rate of opioid deaths over the data period and also how the average death rate from opioids changes from year to year. We see that states like West Virginia and New Mexico have a high rate of opioid death, while the less densely populated states of North Dakokta and South Dakota have less. We can also see that the average death rate each year steadily rises and quintupled over the study period. 
+The below tables show which states have the highest average rate of opioid deaths over the data period and also how the average death rate from opioids changes from year to year. We see that states like West Virginia and New Mexico have a high rate of opioid death, while the less densely populated states of North Dakota and South Dakota have less. We can also see that the average death rate each year steadily rises and quintupled over the study period. 
 
 \input{table2.tex}
 
@@ -73,6 +73,8 @@ Our Paper uses the Callaway and Sant'anna Difference in Differences Estimator wh
 $$ATT(g,t)=E[(  \frac{G_g}{ E[G_g]} - \frac{ \frac{ \hat{p} (X)C}{1- \hat{p} (X)}}{E [\frac{\hat{p} (X) C } {1 - \hat{p} (X)}]}) (Y_t - Y_{g-1})]$$
 
 This estimator was chosen because it can handle treatment that happens in multiple periods. States rolled out recreational marijuana policies in different periods and this estimator allows us to account for these different periods. From this formula we get at ATT for each time period when treatment occurs and an overall ATT. We then do an event study, to see how this effect changes over time.
+
+Our underlying assumptions for the Callaway Sant'anna Model are 1) the data is repeated cross-sectional data or panel data 2) the treatment must be permanent i.e the treatment can not turn on and off again 3) condition X only will be able to maintain parallel trends and 4) the treatment and comparison group must have similar units with approximate propensity scores.
 
 \section*{Results}
 
@@ -98,7 +100,7 @@ We find a significant effect after 5 years of legalizing the recreational use of
 
 \section*{Discussion}
 
-As we expected, opioid deaths goes down after a state legalizes marijuana. However, this does not happen immediately, but takes 5 years for opioids deaths to have a significant decrease. We believe that this is because marijuana becomes a substitute for opioids. 
+As we expected, opioid deaths go down after a state legalizes marijuana. However, this does not happen immediately, but takes 5 years for opioids deaths to have a significant decrease. We believe that this is because marijuana becomes a substitute for opioids. 
 
 We see that the effect is significant overall and in 2012 and 2014, but not after that. This could be due to the fact that there are not enough years to see the significant reduction, since data in 2016 will only last through 2020. 
 
@@ -110,7 +112,7 @@ Also, it is outside the scope of this study to determine if the fall in opioid d
 
 \section*{Conclusion}
 
-Marijuana legalization leads to less opioid deaths in states that legalize marijuana. This could have a profound effect on policy, as it can become one way to combat the ongoing opioid epidemic. If more states were to adopt marijuana legalization, we may see the opioid crisis begin to slow or even decline. 
+Through our study we see that marijuana legalization leads to less opioid deaths on a state level. This could have a profound effect on policy, as it can become one way to combat the ongoing opioid epidemic. If more states were to adopt marijuana legalization, we may see the opioid crisis begin to slow or even decline.The opiod epidemic in some states has reached a turning point where alternative policies should be tested to lower opioid deaths.  Our Callaway-Sant'anna study has seen states that legalize marijuana curb the opioid crisis, or at least opioid deaths. Adopting policies such as Legalizing Marijuana can be more effective than seeking direct intervention with opiates. Legalizing healthy, safe alternative pain medications can be a much better practice than banning the abuse of addictive substances such as opiates.
 
 
 %----------------------------------------------------------------------------------------
