@@ -72,9 +72,7 @@ Our Paper uses the Callaway and Sant'anna Difference in Differences Estimator wh
 
 $$ATT(g,t)=E[(  \frac{G_g}{ E[G_g]} - \frac{ \frac{ \hat{p} (X)C}{1- \hat{p} (X)}}{E [\frac{\hat{p} (X) C } {1 - \hat{p} (X)}]}) (Y_t - Y_{g-1})]$$
 
-This estimator was chosen because it can handle treatment that happens in multiple periods. States rolled out recreational marijuana policies in different periods and this estimator allows us to account for these different periods. 
-
-- We did an event study aggregate effects. I wonder how that changes things. 
+This estimator was chosen because it can handle treatment that happens in multiple periods. States rolled out recreational marijuana policies in different periods and this estimator allows us to account for these different periods. From this formula we get at ATT for each time period when treatment occurs and an overall ATT. We then do an event study, to see how this effect changes over time.
 
 \section*{Results}
 
