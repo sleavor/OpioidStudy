@@ -3,6 +3,7 @@
 
 \input{structure.tex} % Include the file specifying the document structure and custom commands
 \usepackage{longtable}
+\usepackage{flafter}
 
 %----------------------------------------------------------------------------------------
 %	ASSIGNMENT INFORMATION
@@ -25,7 +26,7 @@
 
 \section*{Abstract} % Unnumbered section
 
-Our goal was to determine if there was a link between opioid deaths and availability of marijuana. To do this, we studied opioid deaths by state from 1999-2020 and did a difference-in-differenes study where the treatment was legalization of marijuana. From 2012 to 2020, 14 states legalized marijuana for recreational use, so we used these states to determine how deaths from opioids changes when a state legalizes marijuana. We find that 5-years after legalizing marijuana, states with legal marijuana see a decrease in opioid deaths relative to those where it is still illegal. 
+Our goal was to determine if there was a link between opioid deaths and availability of marijuana. To do this, we studied opioid deaths by state from 1999-2020 and did a difference-in-differenes study where the treatment was legalization of marijuana. From 2012 to 2020, 14 states legalized marijuana for recreational use, so we used these states to determine how deaths from opioids changes when a state legalizes marijuana. We find that 5 years after legalizing marijuana, states with legal marijuana see a decrease in opioid deaths relative to those where it is still illegal. 
 
 \section*{Introduction} % Unnumbered section
 
@@ -74,11 +75,11 @@ $$ATT(g,t)=E[(  \frac{G_g}{ E[G_g]} - \frac{ \frac{ \hat{p} (X)C}{1- \hat{p} (X)
 
 This estimator was chosen because it can handle treatment that happens in multiple periods. States rolled out recreational marijuana policies in different periods and this estimator allows us to account for these different periods. From this formula we get at ATT for each time period when treatment occurs and an overall ATT. We then do an event study, to see how this effect changes over time.
 
-Our underlying assumptions for the Callaway Sant'anna Model are 1) the data is repeated cross-sectional data or panel data 2) the treatment must be permanent i.e the treatment can not turn on and off again 3) condition X only will be able to maintain parallel trends and 4) the treatment and comparison group must have similar units with approximate propensity scores.
+Our underlying assumptions for the Callaway Sant'anna Model are that the data is repeated cross-sectional data or panel data, the treatment must be permanent i.e the treatment can not turn on and off again, the condition X only will be able to maintain parallel trends, and that the treatment and comparison group must have similar units with approximate propensity scores.
 
 \section*{Results}
 
-First we find the results of our overall ATT, which shows a significant decrease in opioid deaths with the legalization of marijuana. We also see significant effects for 2012 and 2014. However, these seem to fall over time.
+Table 4 shows the results of our overall ATT, which shows a significant decrease in opioid deaths with the legalization of marijuana. We also see significant effects for 2012 and 2014. However, these seem to fall over time.
 
 \input{table5.tex}
 
