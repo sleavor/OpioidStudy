@@ -57,6 +57,16 @@ atts <- att_gt(yname = "death_per_100k", # LHS variable
 agg_effects <- aggte(atts, type = "group")
 summary(agg_effects)
 
+#Make agg eff table in Latex
+agg_df = data.frame('Overall', agg_effects$overall.att, agg_effects$overall.se)
+agg_df = setNames(agg_df ,c("Year","ATT", "SE"))
+agg_df2 = data.frame(agg_effects$egt, agg_effects$att.egt, agg_effects$se.egt)
+agg_df2 = setNames(agg_df2 ,c("Year","ATT", "SE"))
+agg_df = rbind(agg_df, agg_df2)
+agg_df$ATT = agg_df$ATT %>% round(2)
+agg_df$SE = agg_df$SE %>% round(2)
+agg_df %>% kbl(format="latex")
+
 # Group-time ATTs
 summary(atts)
 
